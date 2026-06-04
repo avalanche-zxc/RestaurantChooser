@@ -1,23 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+
+import DecisionScreen from "./decisionScreen";
 
 export default function DecisionScreenNavigation() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Decision Screen</Text>
-    </View>
-  );
+  return <DecisionScreen />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#ffffff",
-  },
-  text: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-});

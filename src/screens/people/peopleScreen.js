@@ -1,23 +1,30 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-export default function PeopleScreen() {
+import ListScreen from "./listScreen";
+import AddScreen from "./addScreen";
+
+const Stack = createStackNavigator();
+
+const PeopleScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>People Screen</Text>
-    </View>
-  );
-}
+    <Stack.Navigator
+      initialRouteName="PeopleList"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen
+        name="PeopleList"
+        component={ListScreen}
+      />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#ffffff",
-  },
-  text: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-});
+      <Stack.Screen
+        name="PeopleAdd"
+        component={AddScreen}
+      />
+    </Stack.Navigator>
+  );
+};
+
+export default PeopleScreen;
