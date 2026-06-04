@@ -1,23 +1,20 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import ListScreen from "./listScreen";
+import AddScreen from "./addScreen";
 
-export default function RestaurantsScreen() {
+const Stack = createStackNavigator();
+
+const RestaurantsScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Restaurants Screen</Text>
-    </View>
+    <Stack.Navigator
+      initialRouteName="RestaurantsList"
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="RestaurantsList" component={ListScreen} />
+      <Stack.Screen name="RestaurantsAdd" component={AddScreen} />
+    </Stack.Navigator>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#ffffff",
-  },
-  text: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-});
+export default RestaurantsScreen;
